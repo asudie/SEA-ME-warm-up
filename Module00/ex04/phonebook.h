@@ -4,6 +4,15 @@
 #include <string>
 #include <algorithm>
 
+struct Contact {
+    std::string name;
+    std::string phoneNumber;
+    std::string nickname;
+    bool bookmarked;
+
+    Contact(std::string n, std::string p, std::string nick)
+        : name(n), phoneNumber(p), nickname(nick), bookmarked(false) {}
+};
 
 class Phonebook
 {
@@ -16,14 +25,6 @@ class Phonebook
         void searchContacts();
         void removeContact();
         void listBookmarks();
+        void displayContactDetails(int index);
 };
 
-struct Contact {
-    std::string name;
-    std::string phoneNumber;
-    std::string nickname;
-    bool bookmarked;
-
-    Contact(std::string n, std::string p, std::string nick)
-        : name(n), phoneNumber(p), nickname(nick), bookmarked(false) {}
-};
