@@ -57,6 +57,22 @@ void Phonebook::listBookmarks() {
     }
 } 
 
+void Phonebook::removeContact() {
+    std::cout << "Enter phone number or index to remove: ";
+    std::string input;
+    std::cin >> input;
+    if (isdigit(input[0])) {
+        int index = std::stoi(input);
+        if (index >= 0 && index < (int)contacts.size()) {
+            phoneIndexMap.erase(contacts[index].phoneNumber);
+            contacts.erase(contacts.begin() + index);
+            std::cout << "Contact removed successfully." << std::endl;
+        } else {
+            std::cout << "Invalid index." << std::endl;
+        }
+    } 
+}
+
 int main() {
     Phonebook phonebook;
     std::string command;
