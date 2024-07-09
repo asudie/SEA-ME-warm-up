@@ -70,7 +70,17 @@ void Phonebook::removeContact() {
         } else {
             std::cout << "Invalid index." << std::endl;
         }
-    } 
+    } else {
+        auto it = phoneIndexMap.find(input);
+        if (it != phoneIndexMap.end()) {
+            int index = it->second;
+            phoneIndexMap.erase(it);
+            contacts.erase(contacts.begin() + index);
+            std::cout << "Contact removed successfully." << std::endl;
+        } else {
+            std::cout << "Phone number not found." << std::endl;
+        }
+    }
 }
 
 int main() {
@@ -88,9 +98,16 @@ int main() {
             std::getline(std::cin, name);
             std::cout << "Enter Phone Number: ";
             std::getline(std::cin, phoneNumber);
-            std::cout << "Enter Nickname: ";
-            std::getline(std::cin, nickname);
-            phonebook.addContact(name, phoneNumber, nickname);
+            if(phoneNumber[0] == '+')
+            {
+                std::cout << "Enter Nickname: ";
+                std::getline(std::cin, nickname);
+                phonebook.addContact(name, phoneNumber, nickname);
+            } else
+            {
+                std::cout << "Number should start with +." << std::endl;
+            }
+            
         } else if (command == "SEARCH") {
             phonebook.searchContacts();
         } else if (command == "REMOVE") {

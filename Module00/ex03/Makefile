@@ -2,13 +2,10 @@ CC=g++
 FLAGS=-std=gnu++17 -Wall -Wextra -Werror
 
 all:
-	$(CC) $(FLAGS) ex3.cc -o convert
+	$(CC) $(FLAGS) phonebook.cc -o phonebook -g
 
 clean:
-	rm convert
-
-tests:
-	./convert up "I’m the one!"; ./convert down "I’m A SMall man"
+	rm phonebook
 
 .PHONY:
 	clean

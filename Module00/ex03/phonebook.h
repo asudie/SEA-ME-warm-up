@@ -1,3 +1,6 @@
+#ifndef PHONEBOOK_H
+#define PHONEBOOK_H
+
 #include <iostream>
 #include <vector>
 #include <map>
@@ -28,3 +31,4 @@ class Phonebook
         void displayContactDetails(int index);
 };
 
+#endif // PHONEBOOK_H

@@ -1,8 +1,8 @@
 #include "car.h"
 
 // Constructor
-Car::Car(const std::string& name, int speed) : name(name), speed(speed) {
-    std::cout << "Car constructed: " << name << " with speed " << speed << std::endl;
+Car::Car(const std::string& make, const std::string& model, int year) : make(make), model(model) {
+    std::cout << "Car constructed: " << make << " of model " << model << " made in " << year << std::endl;
 }
 
 // Copy Constructor
@@ -51,8 +51,8 @@ void Car::display() const {
 
 int main() {
     // Create a car object
-    Car car1("Nissane Juke", 100);
-    car1.display();
+    Car car1("", 100);
+    /* car1.display();
 
     // Use copy constructor
     Car car2 = car1;
@@ -66,7 +66,7 @@ int main() {
     // Modify car3 details
     car3.setName("Porsche");
     car3.setSpeed(230);
-    car3.display();
+    car3.display(); */
 
     return 0;
 }
