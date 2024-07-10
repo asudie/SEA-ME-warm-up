@@ -7,6 +7,7 @@ void toUpperCase(std::string& str) {
             c = c - ('a' - 'A');
         }
     }
+    std::cout << str << " ";
 }
 
 void toLowerCase(std::string& str) {
@@ -15,26 +16,26 @@ void toLowerCase(std::string& str) {
             c = c + ('a' - 'A');
         }
     }
+    std::cout << str << " ";;
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 3) {
-        std::cerr << "Usage: ./convert {command} {string}" << std::endl;
-        return 1;
-    }
 
     std::string command = argv[1];
-    std::string str = argv[2];
-
-    if (command == "up") {
-        toUpperCase(str);
-    } else if (command == "down") {
-        toLowerCase(str);
-    } else {
-        std::cerr << "Invalid command. Use 'up' or 'down'." << std::endl;
+    for(int i = 2; argv[i] != NULL; i++)
+    {
+        if (command == "up") {
+            std::string str = argv[i];
+            toUpperCase(str);
+         } else if (command == "down") {
+            std::string str = argv[i];
+          toLowerCase(str);
+         } else {
+         std::cerr << "Invalid command. Use 'up' or 'down'." << std::endl;
         return 1;
     }
+    }
 
-    std::cout << str << std::endl;
+    std::cout << std::endl;
     return 0;
 }

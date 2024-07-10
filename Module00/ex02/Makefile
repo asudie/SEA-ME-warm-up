@@ -1,5 +1,5 @@
 CC=g++
-FLAGS=-std=gnu++17 -Wall -Wextra -Werror
+FLAGS=-std=gnu++17 
 
 all:
 	$(CC) $(FLAGS) ex3.cc -o convert
